@@ -1,10 +1,42 @@
+var au;
+var toHHMMSS = (secs) => {
+    var sec_num = parseInt(secs, 10)
+    var hours = Math.floor(sec_num / 3600)
+    var minutes = Math.floor(sec_num / 60) % 60
+    var seconds = sec_num % 60
+
+    return [hours, minutes, seconds]
+        .map(v => v < 10 ? "0" + v : v)
+        .filter((v, i) => v !== "00" || i > 0)
+        .join(":")
+}
 $(function () {
-    var audio = $("#music")[0];
+    au = $("#music")[0];
     console.log($("#music"));
     $("#player ul li").click(function () {
         $("#music").attr('src', $(this).data('src'));
-        audio.play();
+        au.play();
         $("#player li").removeClass('active');
         $(this).addClass('active');
+    });
+
+    setInterval(function () {
+        $("#current").text(toHHMMSS(au.currentTime));
+        $("#duration").text(toHHMMSS(au.duration));
+    }, 300);
+
+    $("#stop").click(function () {
+        au.pause();
+        au.currentTime = 0;
+    });
+
+    $("#play").click(function () {
+        au.play();
+    });
+    $("#forward").click(function () {
+        au.currentTime += 10;
+    });
+    $("#backward").click(function () {
+        au.currentTime -= 10;
     });
 });
