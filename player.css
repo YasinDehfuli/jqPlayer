@@ -1,0 +1,24 @@
+#player button{
+    height: 75px;
+    width: 75px;
+    font-size: 45px;
+    background: dodgerblue;
+    border: 1px solid blue;
+    border-radius: 50%;
+    color: white;
+}
+#player ul{
+    padding: 0;
+}
+#player ul li{
+    border: 1px solid blue;
+    list-style: none;
+    padding: 7px;
+    margin-bottom: 5px;
+}
+
+#player ul li.active{
+    background: dodgerblue;
+    color: white;
+    font-size: 2em;
+}
