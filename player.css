@@ -27,3 +27,14 @@
     float: right;
     font-size: 30px;
 }
+
+#seekbar{
+    border: 1px solid dodgerblue;
+    margin-top: 5px;
+}
+
+#progress{
+    background: dodgerblue;
+    height: 25px;
+    width: 0%;
+}

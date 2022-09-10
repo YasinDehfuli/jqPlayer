@@ -20,11 +20,6 @@ $(function () {
         $(this).addClass('active');
     });
 
-    setInterval(function () {
-        $("#current").text(toHHMMSS(au.currentTime));
-        $("#duration").text(toHHMMSS(au.duration));
-    }, 300);
-
     $("#stop").click(function () {
         au.pause();
         au.currentTime = 0;
@@ -39,4 +34,24 @@ $(function () {
     $("#backward").click(function () {
         au.currentTime -= 10;
     });
+
+    $("#seekbar").click(function (e) {
+        let w = $(this).width();
+        let parentOffset = $(this).parent().offset();
+        //or $(this).offset(); if you really just want the current element's offset
+        let relX = e.pageX - parentOffset.left;
+        let d= au.duration;
+        au.currentTime = (relX * d ) / w;
+    });
+
+
+    setInterval(function () {
+        $("#current").text(toHHMMSS(au.currentTime));
+        $("#duration").text(toHHMMSS(au.duration));
+        let d= au.duration;
+        let c = au.currentTime;
+        let x = (c * 100) / d;
+        $("#progress").css('width',x+'%');
+    }, 300);
+
 });
