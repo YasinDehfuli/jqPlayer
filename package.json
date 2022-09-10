@@ -1,0 +1,24 @@
+{
+  "name": "jqplayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YasinDehfuli/jqPlayer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YasinDehfuli/jqPlayer/issues"
+  },
+  "homepage": "https://github.com/YasinDehfuli/jqPlayer#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.0",
+    "jquery": "^3.6.1"
+  }
+}
